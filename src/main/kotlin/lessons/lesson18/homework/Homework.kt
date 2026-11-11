@@ -152,4 +152,4 @@ abstract class TemeraturableEquipment : ProgrammableEquipment (), TemperatureReg
 class WashingMachineReal : TemeraturableEquipment() {
 }
 //class
-//Создай объекты этих устройств и позапускай их с различными методами.
+//Создай объекты этих устройств и позапускай их с различными методами. Space.
