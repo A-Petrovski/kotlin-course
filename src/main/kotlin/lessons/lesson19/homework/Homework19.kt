@@ -1,19 +1,6 @@
 package petrovsky.lessons.lesson19.homework
 //Требуется описать класс, интерфейс или функцию и реализовать предложенную логику в коде.
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
 //1. Напиши функцию getMiddleElement с дженериком, которая будет принимать список и возвращать средний элемент,
 // если он существует, иначе возвращать null. Например, у списка из четырёх элементов - среднего элемента нет.
 fun <M> getMiddleElement(list: List<M>) : M? {
@@ -91,7 +78,6 @@ class ListValidator<T: Number> : Validator<List<T?>> {
         return elem.all { it != null && it.toDouble() != 0.0 }
     }
 }
-
 
 fun main() {
     println( getMiddleElement(listOf(1,2,3,4,5,6)))
