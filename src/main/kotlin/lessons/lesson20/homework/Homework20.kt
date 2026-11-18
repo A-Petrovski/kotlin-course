@@ -1,9 +1,11 @@
 package petrovsky.lessons.lesson20.homework
 
+import kotlin.math.absoluteValue
+
 //1. Определите функцию-расширение для массива чисел, которая не принимает аргументов и возвращает пару из чисел
 // - первое и последнее. Если массив был пуст то вернуть пару из null значений.
-fun List<Number>.returnFirstLast(): List<Number> {
-    return listOf(this.first(),this.last())
+fun Array<Number>.returnFirstLast(): Pair<Number?, Number?> {
+    return firstOrNull() to lastOrNull()
 }
 //2. Создайте функцию-расширение для изменяемого списка элементов:
 //      2.1 с дженериком T ограниченным интерфейсом Comparable<T>
@@ -12,7 +14,7 @@ fun List<Number>.returnFirstLast(): List<Number> {
 //      2.4 сам изменяемый список при этом должен стать отсортированным по возрастанию, если в функцию передано true и по
 //      убыванию, если false (используем функции sort() и sortDescending()
 fun <T : Comparable<T>> MutableList<T>.sortAndLock(direction: Boolean) : List<T> {
-    return if (direction) this.sorted() else this.sortedDescending()
+    return if (direction) sorted() else sortedDescending()
 }
 //3. Создайте функцию-расширение для nullable словаря с дженериком:
 //      3.1 Ключ является дженериком
@@ -31,7 +33,7 @@ fun <T,V> Map<T, List<V>>?.customToString(index: Int): Map<String, V?>? {
 // превышает заданное отклонение. Протестируйте функцию на разных типах чисел. Для получения отклонения, у разницы чисел
 // нужно вызвать свойство absoluteValue.
 fun Number.within(other: Number, deviation: Number) : Boolean {
-    return (this.toDouble() - other.toDouble()) <= deviation.toDouble()
+    return (toDouble() - other.toDouble()).absoluteValue <= deviation.toDouble()
 }
 //5. Реализуйте для класса String два метода расширения: encrypt и decrypt. Метод encrypt должен сдвигать каждый символ
 // исходной строки на заданное число позиций вперед по таблице Unicode, а метод decrypt — на то же число позиций назад.
